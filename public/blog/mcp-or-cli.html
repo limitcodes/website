@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MCP or CLI? · limitcodes</title>
+  <meta name="description" content="When your product augments an agent instead of being one, how should users reach it — MCP or CLI?">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <nav><a href="/">Home</a><a href="/blog/">Blogs</a></nav>
+
+  <article>
+    <h1>MCP or CLI?</h1>
+    <p class="date"><time datetime="2026-09-21">Sep 21, 2026</time></p>
+    <p class="note">Originally written for the <a href="https://blog.codefac.ai/posts/mcp-or-cli/">Codefac blog</a>. Check out <a href="https://codefac.ai">Codefac</a>.</p>
+
+    <img src="/images/mcp-or-cli-cover.webp" alt="A robot standing between an MCP sign and a CLI sign" width="1600" height="900">
+
+    <h2>Why even an MCP or CLI?</h2>
+
+    <p>When building a product that is not centered around an AI agent — but instead augments an agent to help your user with something — a question arises: why not meet users in the interface they already use? Claude Code, Codex, ChatGPT, Claude.ai.</p>
+
+    <p>This not only increases the chance of a smoother onboarding experience for end users, but you can also save on inference cost of the same LLMs.</p>
+
+    <p>Now, what should you choose between MCP and CLI? I think: <strong>MCP when you don’t need shell access.</strong></p>
+
+    <h2>Server-side control</h2>
+
+    <p>With an MCP server we can add new tools on the fly, and this new functionality becomes instantly available to the user. In the case of a CLI, the user has to update the CLI version.</p>
+
+    <p>This might also cause drift, where some users are on a previous version of the CLI while others are on the latest — and your agent instructions have to handle all of them.</p>
+
+    <p>See also: <a href="https://cra.mr/context-management-and-mcp/">Context management and MCP</a>.</p>
+
+    <h2>Non-coding agent users</h2>
+
+    <p>When considering a CLI, the first thing that comes to mind for a dev is that it’s as easy to set up as an MCP. But a user using interfaces such as ChatGPT or Claude.ai does not have the option to install a CLI. They <em>can</em> use a Streamable HTTP MCP server, which has been standardised everywhere.</p>
+
+    <p>See also: <a href="https://aembit.io/blog/mcp-or-cli-how-to-choose-right-interface-for-your-ai-tools/">MCP or CLI: how to choose the right interface for your AI tools</a>.</p>
+
+    <h2>Cost: closer than it feels</h2>
+
+    <p>The common argument for a CLI is that it doesn’t load tool schemas into the agent’s context at session start, unlike MCP. But prompt caching is prefix-based: MCP tool schemas sit at the top of the prompt, get cached after the first turn, and cost near-zero afterwards (cached input is ~10% the price of fresh input). The same applies to CLI outputs — anything appended mid-session becomes part of the cacheable prefix for the next turn. Neither approach “misses out” on caching.</p>
+
+    <p>The real cost differences are smaller and structural:</p>
+
+    <ul>
+      <li><strong>Floor size:</strong> MCP puts every tool’s full schema in context all session; a CLI + skill loads only a short skill description, with the SKILL.md body read on demand (~one-time, also cacheable). With 50+ tools this gap is real, otherwise marginal.</li>
+      <li><strong>Output volume:</strong> MCP tools tend to return chatty payloads on every call; a CLI can return terse output and compose with pipes and grep. This is the bigger lever — and it’s a design choice either way.</li>
+    </ul>
+
+    <p>A well-designed MCP (few composable tools, strict schemas, pagination, returning IDs over payloads) closes most of this gap. If you’re going to invest that design effort anyway, cost shouldn’t be the deciding factor — decide on the points above instead.</p>
+
+    <p>See also: <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching">Prompt caching</a>.</p>
+  </article>
+</body>
+</html>
