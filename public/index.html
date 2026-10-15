@@ -3,27 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>limitcodes</title>
-  <meta name="description" content="I build stuff mainly related to ai">
+  <title>Hari Pritam Reddy · limitcodes</title>
+  <meta name="description" content="Hari Pritam Reddy (limitcodes). I build agent infrastructure: sandboxed coding-agent pipelines, MCP servers and agent harnesses.">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="/style.css?v=2">
 </head>
 <body>
   <nav><a href="/">Home</a><a href="/blog/">Blogs</a><a href="https://github.com/limitcodes">GitHub</a><a href="https://x.com/limitcodes">X</a></nav>
 
-  <p>Hi, I am limitcodes.</p>
-  <p>I build stuff mainly related to ai.</p>
+  <p>Hi, I am Hari Pritam Reddy. I go by limitcodes online.</p>
+  <p>I build agent infrastructure: the runtimes, sandboxes and tools that let coding agents do real work. At <a href="https://www.appointy.com">Appointy</a> I built most of Codefac and the company's internal AI platform.</p>
+
+  <h2>Writing:</h2>
+
+  <ul class="posts">
+    <li><span class="date">Sep 21, 2026</span> <a href="/blog/mcp-or-cli">MCP or CLI?</a></li>
+    <li><span class="date">Jun 26, 2026</span> <a href="/blog/introducing-codefac">Introducing Codefac</a></li>
+    <li><span class="date">Jul 14, 2025</span> <a href="/blog/agentic-hindering">Agentic Hindering: Faulty First Principles</a></li>
+  </ul>
 
   <h2>Projects:</h2>
 
   <div class="project">
     <p><a href="https://codefac.ai">Codefac</a></p>
-    <p>A software factory for turning rough signals into reviewed, shippable work.</p>
-  </div>
-
-  <div class="project">
-    <p><a href="https://github.com/limitcodes/space">Space</a></p>
-    <p>A lightweight Electron coding workspace with terminals, file browsing, and review diffs.</p>
+    <p>A software factory that turns rough signals (a Slack thread, a bug report) into reviewed, shippable changes.</p>
+    <p>I wrote most of the platform and own it at Appointy: Claude Code, Codex and Cursor pipelines in E2B sandboxes, orchestrated with Temporal, with KMS-encrypted secrets and pause/resume for human input.</p>
   </div>
 
   <div class="project">
@@ -33,49 +37,31 @@
 
   <div class="project">
     <p><a href="https://github.com/limitcodes/ofos">Ofos</a></p>
-    <p>An email agent, built Cloudflare-first on Workers.</p>
+    <p>An email agent, built Cloudflare-first on Workers and D1, with a cron scheduler and email threading.</p>
+  </div>
+
+  <p class="note">Smaller experiments: <a href="https://github.com/limitcodes/space">Space</a>, <a href="https://github.com/limitcodes/kronos">Kronos</a>, <a href="https://github.com/limitcodes/vector">Vector</a>, <a href="https://github.com/limitcodes/cronos">Cronos</a>, <a href="https://github.com/limitcodes/dan">DAN</a>.</p>
+
+  <h2>Open source:</h2>
+
+  <div class="project">
+    <p><a href="https://github.com/pnpm/pnpm/pull/15653">pnpm/pnpm#15653</a> (merged)</p>
+    <p>With the global virtual store, dependency build scripts couldn't find the <code>node</code> that <code>devEngines.runtime</code> installs. Fixed it by putting the root project's pinned runtime on <code>PATH</code>, scoped so shared store slots stay correctly hashed.</p>
   </div>
 
   <div class="project">
-    <p><a href="https://github.com/limitcodes/kronos">Kronos</a></p>
-    <p>A native macOS chat app with a Liquid Glass UI, running the Pi coding agent as a sidecar.</p>
+    <p><a href="https://github.com/synthetic-lab/octofriend/pull/47">octofriend#47</a> (merged)</p>
+    <p>Fixed crashes when an MCP server fails to connect.</p>
   </div>
 
   <div class="project">
-    <p><a href="https://github.com/limitcodes/vector">Vector</a></p>
-    <p>An agent interface.</p>
-    <p>Agent is inspired from Droid and Cursor.</p>
-    <p>Interface is a clone of codex app.</p>
-  </div>
-
-  <div class="project">
-    <p><a href="https://github.com/limitcodes/cronos">Cronos</a></p>
-    <p>A generalist agent with many connectors.</p>
-    <p>Primarily built cause of anger from YC companies just wrapping around composio (composio.dev).</p>
-  </div>
-
-  <div class="project">
-    <p><a href="https://github.com/limitcodes/dan">DAN</a></p>
-    <p>Data Analyst.</p>
-    <p>One of the first "Agents" I built: a simple data analysis where the model takes a csv file and answers questions, makes graphs etc.</p>
-    <p>I think my Deep Learning class inspired this.</p>
-  </div>
-
-  <div class="project">
-    <p><a href="https://tokscale.ai/u/limitcodes">Tokens Wasted</a></p>
-  </div>
-
-  <h2>Contributions/Forks:</h2>
-
-  <div class="project">
-    <p><a href="https://github.com/limitcodes/sitegeist">sitegeist</a></p>
+    <p><a href="https://github.com/limitcodes/sitegeist">sitegeist</a> (fork)</p>
     <p>Fork of sitegeist, an AI assistant in your browser. Migrated it to the current Pi packages and added browser file downloads.</p>
   </div>
 
-  <div class="project">
-    <p><a href="https://github.com/synthetic-lab/octofriend">octofriend</a></p>
-    <p>Fixed crashes when an MCP server fails to connect.</p>
-  </div>
+  <h2>Elsewhere:</h2>
+
+  <p><a href="https://tokscale.ai/u/limitcodes">Tokens Wasted</a>: my coding-agent token usage, tracked on Tokscale.</p>
 
 </body>
 </html>
